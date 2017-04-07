@@ -131,18 +131,9 @@ client.select('15', function(error){
             }
 
             // πÿ±’¡¥Ω”
-            //client.end();
+            client.end();
         });
     }
 });
 
-client.publish("device", "point");
 
-client.on('psubscribe', function (pattern, count) {
-    console.log('client1 psubscribed to ' + pattern + ', ' + count + ' total subscriptions');
-    client2.publish('channeltwo', 'Me!');
-    client3.publish('channelthree', 'Me too!');
-    client4.publish('channelfour', 'And me too!');
-});
-
-client1.psubscribe('channel*');
